@@ -1,0 +1,77 @@
+{% extends 'base.html.twig'%}
+{% block javascripts %}
+	<script src={{ asset("assets/js/home.js") }}></script>
+{% endblock %}
+{% block title %}
+	Home Page
+{% endblock %}
+{% block body %}
+
+
+	<div>
+		Stocks added by all user
+
+		<table>
+			<thead>
+				<tr class="flex">
+					<td>
+						<h2>Stock Name</h2>
+					</td>
+					<td>
+						<h2>Stock Price</h2>
+					</td>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for item  in stock_list %}
+					<tr class="flex">
+						<td class="title">
+							<h2>{{ item.stockName }}</h2>
+						</td>
+						<td class="desc">
+							<h2>{{ item.stockPrice }}</h2>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<button id="action_add_stock">Add Stock</button>
+	</div>
+	<br>
+	<br><br>
+	<div>
+		Stocks added by current user
+		<table>
+			<thead>
+				<tr class="flex">
+					<td>
+						<h2>Stock Name</h2>
+					</td>
+					<td>
+						<h2>Stock Price</h2>
+					</td>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for item  in stock_list_user %}
+					<tr class="flex">
+						<td class="title">
+							<h2>{{ item.stockName }}</h2>
+						</td>
+						<td class="desc">
+							<h2>{{ item.stockPrice }}</h2>
+						</td>
+						<td>
+							<a class="button" href="{{ path('update_stock_page_route', {stock_id: item.id} )}}">Update Stock</a>
+
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+{% endblock %}

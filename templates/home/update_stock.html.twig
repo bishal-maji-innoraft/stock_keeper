@@ -1,0 +1,17 @@
+
+{% extends 'base.html.twig' %}
+{% block title %}Update Stock{% endblock %}
+
+{% block body %}
+
+<div>
+Update Stock
+<form name="stock_update_form"  method="post">
+<label for="stock_name"></label>
+<input type="text" name="stock_name">
+<label for="stock_price"></label>
+<input type="text" name="stock_price">
+<button id="action_update_stock" type="submit" >Update</button>
+</form>
+</div>
+{% endblock %}
